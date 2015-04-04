@@ -117,4 +117,10 @@ nbproject
 .idea
 .node_history
 
+# Added
 *.*.swp
+assets/fonts
+assets/less/dependencies
+assets/js/dependencies/jquery.js
+assets/js/dependencies/bootstrap.js
+
