@@ -54,11 +54,13 @@
     switch(animation) {
       case 'everywhere-usa':
         view = require('./canvas.everywhere-usa');
+        break;
       case 'forest-moon':
-        view = require('./canvas.forest-moon');
+        view = require('./canvas.forest-moon')();
+        break;
       case 'squares-and-triangles':
-        view = require('./canvas.squares-and-triangles');
-      break;
+        view = require('./canvas.squares-and-triangles')();
+        break;
     }
 
     view.init();

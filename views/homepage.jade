@@ -44,21 +44,21 @@ block body
           .gc-image-container
             p
               a(href='http://csllegal.com', target='_blank') California Sports Lawyer
-            |         
+
             a(href='http://csllegal.com', target='_blank')
               .img-responsive.gc-project-sprite.gc-sprite-csl.gc-border
-          |       
+
           .gc-image-container
             p
               a(href='http://californiasodcenter.com', target='_blank') California Sod Center
-            |         
+
             a(href='http://californiasodcenter.com', target='_blank')
               .img-responsive.gc-project-sprite.gc-sprite-csc.gc-border
-          |       
+
           .gc-image-container
             p
               a(href='http://redalytics.greg-considine.com', target='_blank') Redalytics
-            |         
+
             a(href='http://redalytics.greg-considine.com', target='_blank')
               .img-responsive.gc-project-sprite.gc-sprite-redalytics.gc-border
 
@@ -66,122 +66,123 @@ block body
       .gc-content
         .col-md-4.gc-icon-title
           span.glyphicon.glyphicon-picture.gc-content-icon
-          |       
+
           h1 Canvas Animations
-          |       
+
           .gc-link(data-toggle='modal', data-target='#canvasModal')
             span.glyphicon.glyphicon-info-sign.gc-content-details
-            |         
             p (click for info)
-        |     
+
         .col-md-8
           .gc-image-container
             p
               a(href='/animations/everywhere-usa') Everywhere, USA
-            |         
+
             a(href='/animations/everywhere-usa')
               .img-responsive.gc-project-sprite.gc-sprite-everywhere.gc-border
-          |       
+
           .gc-image-container
             p
               a(href='/animations/forest-moon') Forest Moon
-            |         
+
             a(href='/animations/forest-moon')
               .img-responsive.gc-project-sprite.gc-sprite-forest.gc-border
-          |       
+
           .gc-image-container
             p
               a(href='/animations/squares-and-triangles') Squares and Triangles
-            |         
+
             a(href='/animations/squares-and-triangles')
               .img-responsive.gc-project-sprite.gc-sprite-squares.gc-border
+
     #openSource.container
       .gc-content
         .col-md-4.gc-icon-title
           span.glyphicon.glyphicon-eye-open.gc-content-icon
-          |       
+
           h1 Open Source
-          |       
+
           .gc-link(data-toggle='modal', data-target='#openSourceModal')
             span.glyphicon.glyphicon-info-sign.gc-content-details
-            |         
+
             p (click for info)
-        |     
+
         .col-md-8
           .gc-image-container
             p
               a(href='https://github.com/gconsidine', target='_blank') GitHub
-            |         
+
             a(href='https://github.com/gconsidine', target='_blank')
               .img-responsive.gc-project-sprite.gc-sprite-github-content.gc-border
-          |       
+
           .gc-image-container
             p
               a(href='https://coveralls.io/r/gconsidine', target='_blank') Coveralls
-            |         
+
             a(href='https://coveralls.io/r/gconsidine', target='_blank')
               .img-responsive.gc-project-sprite.gc-sprite-coveralls.gc-border
-          |       
+
           .gc-image-container
             p
               a(href='https://travis-ci.org/gconsidine/plz-cms', target='_blank') Travis CI
-            |         
+
             a(href='https://travis-ci.org/gconsidine/plz-cms', target='_blank')
               .img-responsive.gc-project-sprite.gc-sprite-travis.gc-border
+
     #contactMe.container
       .gc-content
         .col-md-4.gc-icon-title
           span.glyphicon.glyphicon-envelope.gc-content-icon
-          |       
+
           h1 Contact Me
-        |     
+
         .col-md-8
           .form-group
             textarea#userMessage.form-control(name='userMessage', rows='10', placeholder='Comments and questions.', required='')
-          |       
+
           .form-group.pull-left
             input#userEmail.form-control(type='email', name='userEmail', placeholder='name@domain.com', required='')
-          |       
+
           button#contactButton.btn.btn-default.pull-right Send
-          |       
+
           #contactSuccess.pull-right.gc-text-success(style='display:none') Thank You!
-          |       
+
           img#contactSending.pull-right(width='32', height='32', style='display:none', src='images/loading.gif')
-          |       
+
           #contactStatus.pull-left.gc-contact-status.text-danger(style='display:none')
-    // Modals
+
+
     #webAppsModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='webAppsModalLabel', aria-hidden='true')
       .modal-dialog
         .modal-content
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
-            |         
             h4#webAppsModalLabel.modal-title Web Applications
-          |       
+
           .modal-body
             .gc-project-entry
               a(href='http://csllegal.com')
                 h4 California Sports Lawyer
-              |           
+
               p
                 | Built with Laravel (an MVC framework for PHP) and Twitter Bootstrap (for responsive
                 | design). The site has CMS features that gives an administrator the ability to
                 | add/edit/delete articles, blogs, events, clients, and other information throughout the
                 | site. All content is automatically formatted and displayed.
-            |         
+
             .gc-project-entry
               a(href='http://californiasodcenter.com')
                 h4 California Sod Center
-              |           
+
               p
                 | This iteration of californiasodcenter.com was completely redesigned from the ground
                 | up. It&apos;s an e-commerce site that allows customers to easily purchase sod and
                 | sod-related items quickly and securely using Authorize.net as a payment gateway.
-            |         
+
             .gc-project-entry
               a(href='http://redalytics.greg-considine.com')
                 h4 Redalytics
-              |           
+
               p
                 | A fun project that I worked on over the course of a few weekends. It was my first
                 | attempt at creating a single-page application, where all content is asynchronously
@@ -189,26 +190,26 @@ block body
                 | simple DOM manipulation -- there&apos;s no waiting for a response from the server after the
                 | initial wait to gather a user&apos;s post history, so the overall experience feels snappy
                 | like a native app.
-              |           
+
               p
                 | Redalytics is a tool that allows a user to gather all post history from a given reddit
                 | account and have it formatted and displayed in a way that&apos;s easy to navigate. There are
                 | also charts that show posting habits and frequencies, as well as a section for general
                 | information containing total karma count, trophies, top 3 best posts, top 3 worst
                 | posts, etc.
+
     #canvasModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='canvasModalLabel', aria-hidden='true')
       .modal-dialog
         .modal-content
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
-            |         
             h4#canvasModalLabel.modal-title Canvas Animations
-          |       
+
           .modal-body
             .gc-project-entry
               a(href='/animations/everywhere-usa')
                 h4 Everywhere, USA
-              |           
+
               p
                 | This animation was made over the course of a day or two as a class project.  It was one
                 | of my first attempts at working with HTML5 canvas, and my first attempt at a
@@ -216,11 +217,11 @@ block body
                 | class, so I was never able to squeeze as much detail as I wanted into anything I
                 | created.  This animation features a little truck putt-putting along, and was inspired
                 | by a road trip I took up the 5 Freeway a few years ago.
-            |         
+
             .gc-project-entry
               a(href='/animations/forest-moon')
                 h4 Forest Moon
-              |           
+
               p
                 | I took a different approach to 
                 em Forest Moon
@@ -231,59 +232,52 @@ block body
                 |             one layer for the randomly placed (within particular parameters) terrestrial elements,
                 |             and one layer for actors -- though the only actor ended up being a triangular
                 |             UFO-thing.
-            |         
+
             .gc-project-entry
               a(href='/animations/squares-and-triangles')
                 h4 Squares and Triangles
-              |           
+
               p
                 em Squares and Triangles
                 |  was quickly made, and although I wasn&apos;t really
                 |             satisfied with the general idea for this animation, I do like the artifacts that
                 |             appear as the shapes are drawn, and as they&apos;re incompletely erased when the animation
                 |             winds back around.
-              |  
-              |           
-              p
-                small
-                  b NOTE:
-                  |  The JavaScript source for these animations are left unminified so
-                  |             they can be easily viewed.
+
     #openSourceModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='openSourceModalLabel', aria-hidden='true')
       .modal-dialog
         .modal-content
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
-            |         
             h4#openSourceModalLabel.modal-title Open Source
-          |       
+
           .modal-body
             .gc-project-entry
               a(href='https://github.com/gconsidine', target='_blank') GitHub
-              |           
+
               p
                 | GitHub has become an indispensable tool, community, and resource for me. Lately, I&apos;ve
                 | been taking cues from the many great projects I&apos;ve had the pleasure of using.  While I
                 | don&apos;t open source all of my projects (client projects in particular), I do try to keep
                 | everything else open on the MIT license -- even the old projects that make me cringe a
                 | bit when I revisit them.
-            |         
+
             .gc-project-entry
               a(href='https://coveralls.io/r/gconsidine', target='_blank') Coveralls
-              |           
+
               p
                 | Testing has moved to the forefront of my thought process while writing code nowadays.
                 | Now that I&apos;ve invested the time to integrate automated testing into my workflow, it&apos;s
                 | hard to imagine living without it.  It provides a level of confidence, security, and
                 | assurance that just isn&apos;t attainable otherwise.
-              |           
+
               p
                 | Coveralls is a great open source tool to provide coverage statistics on your open
                 | source projects and has excellent integration with GitHub.
-            |         
+
             .gc-project-entry
               a(href='https://travis-ci.org/gconsidine/plz-cms', target='_blank') Travis CI
-              |           
+
               p
                 | Over time, I&apos;ve worked to refine and automate my workflow.  Using Travis CI on open
                 | source projects has been a big help in automating full builds and relaying the status
