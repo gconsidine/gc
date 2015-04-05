@@ -44,7 +44,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'post /contact': 'ContactController.sendForm',
+  'post /contact': 'ContactController.send',
   'get /animations/everywhere-usa': 'AnimationController.everywhereUsa',
   'get /animations/forest-moon': 'AnimationController.forestMoon',
   'get /animations/squares-and-triangles': 'AnimationController.squaresAndTriangles'

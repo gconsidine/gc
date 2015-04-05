@@ -4,8 +4,8 @@ var AppUtility = function () {
     this.updateStatus('pending');
 
     if(this.validateRequest(o)) {
-      var postString = 'text=' + encodeURIComponent(o.text) + '&email=' 
-                     + encodeURIComponent(o.email);
+      var postString = 'text=' + encodeURIComponent(o.text) + '&email=' + 
+                        encodeURIComponent(o.email) + '&_csrf=' + encodeURIComponent(o._csrf);
     } else {
       this.updateStatus('fail');
       return false;
@@ -17,16 +17,18 @@ var AppUtility = function () {
       return false;
     }
     
-    httpRequest.onreadystatechange = alertContents;
+    httpRequest.onreadystatechange = alertContents.bind(this);
     httpRequest.open('POST', '/contact');
     httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     httpRequest.send(postString);
     
-    function alertContents(){
-      if(httpRequest.readyState === 4 && httpRequest.status === 200){
-        this.updateStatus('success');      
-      } else {
-        this.updateStatus('fail');
+    function alertContents() {
+      if(httpRequest.readyState === 4) {
+        if(httpRequest.status === 200) {
+          this.updateStatus('success');      
+        } else {
+          this.updateStatus('fail');
+        }
       }
     }
   };

@@ -142,6 +142,7 @@ block body
 
           .form-group.pull-left
             input#userEmail.form-control(type='email', name='userEmail', placeholder='name@domain.com', required='')
+            input#_csrf(type='hidden', name='_csrf', value=_csrf)
 
           button#contactButton.btn.btn-default.pull-right Send
 

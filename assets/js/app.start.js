@@ -39,7 +39,8 @@
       contactButton.onclick = function () { 
         utility.request({
           text: document.getElementById('userMessage').value,
-          email: document.getElementById('userEmail').value
+          email: document.getElementById('userEmail').value,
+          _csrf: document.getElementById('_csrf').value
         });
       };
     }
