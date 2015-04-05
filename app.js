@@ -1,3 +1,5 @@
+require('newrelic');
+
 /**
  * app.js
  *
