@@ -1,97 +1,293 @@
 extends ./layout
 
-
 block body
-  // Default home page
-  link(type='text/css', href='http://sailsjs.org/styles/fonts.css', rel='stylesheet')
+  .container
+    .gc-content.gc-top-content
+        .col-md-4
+          #logoContent.gc-logo-content(style='height: 300px;')
+        |     
 
-  // Styles included inline since you'll probably be deleting this page anyway
-  style html,body{text-align:left;font-size:1em}html,body,img,form,textarea,input,fieldset,div,p,div,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,code{margin:0;padding:0}ul,li{list-style:none}img{display:block}a img{border:0}a{text-decoration:none;font-weight:normal;font-family:inherit}*:active,*:focus{outline:0;-moz-outline-style:none}h1,h2,h3,h4,h5,h6{font-weight:normal}div.clear{clear:both}.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}body{font-family:"Open Sans",Arial,sans-serif;font-weight:300;}.top-bar {width: 100%; background-color: #e4f0f1; padding: 15px 0;}.top-bar .container img {float: left;}.top-bar .container ul {float: right; padding-top: 25px;}.top-bar .container li {float: left; width: 125px; text-align: center; font-size: 15px; color:#000; font-weight: 600;}.top-bar .container a li:hover {color: #118798; -webkit-transition:color 200ms; -moz-transition:color 200ms; -o-transition:color 200ms;transition:color 200ms;}.container{width: 80%; max-width: 1200px; margin: auto;}div.header {-webkit-transition: 6s; -moz-transition: 6s; -o-transition: 6s;transition: 6s; background: rgba(4, 36, 41, 0.89) url(http://sailsjs.org/images/img_sailsShadow.png) no-repeat 42% bottom; padding: 100px 0 65px;}.header h1#main-title{color: #fff; font-weight: 300; font-size: 2.5em;}.header h3{color: #b1eef7; font-style: italic; font-weight: 300;}.header h3 code{font-style: normal!important; background-color: rgba(255,255,255,0.5); font-weight: 300; color:#0e6471; margin: 0px 5px;}div.main.container{padding: 50px 0;}h1 {color: #118798; font-weight: 300;}code {font-size: inherit; font-family: 'Consolas', 'Monaco', monospace; padding:4px 5px 1px; background-color: #f3f5f7}a{color: #118798; font-weight: 300; text-decoration: underline;}a:hover {color: #0e6471; -webkit-transition:color 200ms; -moz-transition:color 200ms; -o-transition:color 200ms;transition:color 200ms;}p{line-height: 1.5em;}blockquote{background-color: #e4f0f1; padding: 25px; line-height: 1.5em; margin: 15px 0;}blockquote span{font-weight: 600; padding-right: 5px;}ul.getting-started{padding: 25px 75px 25px 0; width: 70%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}ul.getting-started li{padding: 25px 0;}ul.getting-started li h3 {padding-bottom: 10px; font-size: 25px; font-weight: 300;}.sprite{background:url(http://sailsjs.org/images/newapp.sprite.png) no-repeat; position: absolute; left: 0; top:0;}.getting-started .sprite{margin-left:10px;padding-left:60px;height:42px;width:0; float: left;}.getting-started .one{background-position:0 0}.getting-started .two{background-position:0 -42px}.getting-started .three{background-position:0 -83px}div.step {position: relative; padding-left: 70px; opacity: 0.9;}div.step:hover{ opacity: 1;}div.links {float: left; width: 30%; max-width: 325px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #f3f5f7; border: 1px solid #ebebeb; padding: 25px 45px 35px;}div.links h3 {color: #727272; text-align: center; font-size: 28px; font-weight: 300;}div.links h4 {color: #727272; font-size: 17px; font-weight: 600; padding: 15px 0 10px;}div.links .link-list a {text-decoration: none; font-weight: 400;}div.links .link-list a li {padding: 0px 0px 5px 10px;}div.default-page{min-width: 1200px;}.pocket{display:none;}
+        .col-md-8.gc-welcome-container
+          h1 Thanks for Visiting
 
-  script(type='text/javascript').
-    setTimeout(function sunrise () {
-      document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
-    }, 0);
+          hr
 
-  .default-page
-    .header
-      h1#main-title.container
-        | A brand new app.
-      h3.container
-        | You're looking at:
-        code
-          = view.pathFromApp + '.' + view.ext
-    .main.container.clearfix
-      //
-         <h1>Getting started</h1>
-                <p>Don't worry, we've got your back.</p>
-      ul.getting-started
-        li.clearfix
-          .step
-            .sprite.one
-            h3 Generate a REST API.
+          p
+            | I&apos;m a software engineer currently focused on full-stack engineering and modern best
+            | practices.  In addition to development in LAMP-based environments at work and
+            | mostly MEAN-based environments at home, I enjoy being involved in the automation of
+            | processes (testing, building, deploying, etc.), and in monitoring of the health and usage
+            | of projects in production.
+
+          p
+            | When I&apos;m not immersed in something technical, I find myself becoming more interested in the
+            | wisdom handed down from the elders of the industry, and the history of the industry itself.
+
+          p
+            | Software is my profession and primary hobby and I&apos;m always looking to learn new 
+            | technologies and to hone my skills.  If you&apos;d like to get in touch with me, use the 
+            a.gc-scroll(href='#contactMe') contact form
+            |  below and I&apos;ll get back to you as soon as possible.  Thank you!
+
+    #webApps.container
+      .gc-content
+        .col-md-4.gc-icon-title
+          span.glyphicon.glyphicon-globe.gc-content-icon
+
+          h1 Web Apps
+
+          .gc-link(data-toggle='modal', data-target='#webAppsModal')
+            span.glyphicon.glyphicon-info-sign.gc-content-details
+            p (click for info)
+
+        .col-md-8
+          .gc-image-container
             p
-              | Run
-              code sails generate api user
-              | .  This will create two files: a
-              a(href='http://links.sailsjs.org/docs/models') model
-              code.pocket api/models/User.js
-              | and a
-              a(href='http://links.sailsjs.org/docs/controllers') controller
-              code.pocket api/controllers/UserController.js
-              | .
-        li.clearfix
-          .step
-            .sprite.two
-            h3
-              | Lift your app.
+              a(href='http://csllegal.com', target='_blank') California Sports Lawyer
+            |         
+            a(href='http://csllegal.com', target='_blank')
+              .img-responsive.gc-project-sprite.gc-sprite-csl.gc-border
+          |       
+          .gc-image-container
             p
-              | Run
-              code sails lift
-              | to start up your app server.  If you visit
-              a(target='_blank', href='http://localhost:1337/user')
-                code http://localhost:1337/user
-              | in your browser, you'll see a
-              a(href='http://links.sailsjs.org/docs/blueprints') WebSocket-compatible
-              | user API.
-        li.clearfix
-          .step
-            .sprite.three
-            h3
-              | Dive in.
+              a(href='http://californiasodcenter.com', target='_blank') California Sod Center
+            |         
+            a(href='http://californiasodcenter.com', target='_blank')
+              .img-responsive.gc-project-sprite.gc-sprite-csc.gc-border
+          |       
+          .gc-image-container
             p
-              | Blueprints are just the beginning.  You'll probably also want to learn how to customize your app's
-              a(href='http://links.sailsjs.org/docs/routes') routes
-              | , set up
-              a(href='http://links.sailsjs.org/docs/policies') security policies
-              | , configure your
-              a(href='http://links.sailsjs.org/docs/config/connections') data sources
-              | , and build custom
-              a(target='_blank', href='http://links.sailsjs.org/docs/controllers') controller actions
-              | . For more help getting started, check out the links on this page.
-            // Try adding a custom route in your <code>config/routes.js</code> file and pointing it at <code>UserController.find</code>.
-            p  
-      .links
-        // <h3>Links</h3>
-        ul.link-list
-          h4 Docs
-          a(target='_blank', href='http://sailsjs.org/#!documentation/anatomy')
-            li App Structure
-          a(target='_blank', href='http://sailsjs.org/#!documentation/reference')
-            li Reference
-          a(target='_blank', href='http://links.sailsjs.org/docs/faq')
-            li FAQ
-          a(target='_blank', href='http://sailsjs.org')
-            li Supported Databases
-          h4 Tutorials
-          a(target='_blank', href='http://links.sailsjs.org/community/sails101')
-            li Sails 101
-          h4 Community
-          a(target='_blank', href='http://stackoverflow.com/search?q=sails.js')
-            li StackOverFlow
-          a(target='_blank', href='https://github.com/balderdashy/sails')
-            li GitHub
-          a(target='_blank', href='https://groups.google.com/forum/#!forum/sailsjs')
-            li Google Group
-          a(target='_blank', href='http://webchat.freenode.net/')
-            li IRC (#sailsjs on freenode)
+              a(href='http://redalytics.greg-considine.com', target='_blank') Redalytics
+            |         
+            a(href='http://redalytics.greg-considine.com', target='_blank')
+              .img-responsive.gc-project-sprite.gc-sprite-redalytics.gc-border
+
+    #canvasAnimations.container
+      .gc-content
+        .col-md-4.gc-icon-title
+          span.glyphicon.glyphicon-picture.gc-content-icon
+          |       
+          h1 Canvas Animations
+          |       
+          .gc-link(data-toggle='modal', data-target='#canvasModal')
+            span.glyphicon.glyphicon-info-sign.gc-content-details
+            |         
+            p (click for info)
+        |     
+        .col-md-8
+          .gc-image-container
+            p
+              a(href='/animations/everywhere-usa') Everywhere, USA
+            |         
+            a(href='/animations/everywhere-usa')
+              .img-responsive.gc-project-sprite.gc-sprite-everywhere.gc-border
+          |       
+          .gc-image-container
+            p
+              a(href='/animations/forest-moon') Forest Moon
+            |         
+            a(href='/animations/forest-moon')
+              .img-responsive.gc-project-sprite.gc-sprite-forest.gc-border
+          |       
+          .gc-image-container
+            p
+              a(href='/animations/squares-and-triangles') Squares and Triangles
+            |         
+            a(href='/animations/squares-and-triangles')
+              .img-responsive.gc-project-sprite.gc-sprite-squares.gc-border
+    #openSource.container
+      .gc-content
+        .col-md-4.gc-icon-title
+          span.glyphicon.glyphicon-eye-open.gc-content-icon
+          |       
+          h1 Open Source
+          |       
+          .gc-link(data-toggle='modal', data-target='#openSourceModal')
+            span.glyphicon.glyphicon-info-sign.gc-content-details
+            |         
+            p (click for info)
+        |     
+        .col-md-8
+          .gc-image-container
+            p
+              a(href='https://github.com/gconsidine', target='_blank') GitHub
+            |         
+            a(href='https://github.com/gconsidine', target='_blank')
+              .img-responsive.gc-project-sprite.gc-sprite-github-content.gc-border
+          |       
+          .gc-image-container
+            p
+              a(href='https://coveralls.io/r/gconsidine', target='_blank') Coveralls
+            |         
+            a(href='https://coveralls.io/r/gconsidine', target='_blank')
+              .img-responsive.gc-project-sprite.gc-sprite-coveralls.gc-border
+          |       
+          .gc-image-container
+            p
+              a(href='https://travis-ci.org/gconsidine/plz-cms', target='_blank') Travis CI
+            |         
+            a(href='https://travis-ci.org/gconsidine/plz-cms', target='_blank')
+              .img-responsive.gc-project-sprite.gc-sprite-travis.gc-border
+    #contactMe.container
+      .gc-content
+        .col-md-4.gc-icon-title
+          span.glyphicon.glyphicon-envelope.gc-content-icon
+          |       
+          h1 Contact Me
+        |     
+        .col-md-8
+          .form-group
+            textarea#userMessage.form-control(name='userMessage', rows='10', placeholder='Comments and questions.', required='')
+          |       
+          .form-group.pull-left
+            input#userEmail.form-control(type='email', name='userEmail', placeholder='name@domain.com', required='')
+          |       
+          button#contactButton.btn.btn-default.pull-right Send
+          |       
+          #contactSuccess.pull-right.gc-text-success(style='display:none') Thank You!
+          |       
+          img#contactSending.pull-right(width='32', height='32', style='display:none', src='images/loading.gif')
+          |       
+          #contactStatus.pull-left.gc-contact-status.text-danger(style='display:none')
+    // Modals
+    #webAppsModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='webAppsModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+            |         
+            h4#webAppsModalLabel.modal-title Web Applications
+          |       
+          .modal-body
+            .gc-project-entry
+              a(href='http://csllegal.com')
+                h4 California Sports Lawyer
+              |           
+              p
+                | Built with Laravel (an MVC framework for PHP) and Twitter Bootstrap (for responsive
+                | design). The site has CMS features that gives an administrator the ability to
+                | add/edit/delete articles, blogs, events, clients, and other information throughout the
+                | site. All content is automatically formatted and displayed.
+            |         
+            .gc-project-entry
+              a(href='http://californiasodcenter.com')
+                h4 California Sod Center
+              |           
+              p
+                | This iteration of californiasodcenter.com was completely redesigned from the ground
+                | up. It&apos;s an e-commerce site that allows customers to easily purchase sod and
+                | sod-related items quickly and securely using Authorize.net as a payment gateway.
+            |         
+            .gc-project-entry
+              a(href='http://redalytics.greg-considine.com')
+                h4 Redalytics
+              |           
+              p
+                | A fun project that I worked on over the course of a few weekends. It was my first
+                | attempt at creating a single-page application, where all content is asynchronously
+                | loaded up front, then processed and displayed with JavaScript. Page navigation is just
+                | simple DOM manipulation -- there&apos;s no waiting for a response from the server after the
+                | initial wait to gather a user&apos;s post history, so the overall experience feels snappy
+                | like a native app.
+              |           
+              p
+                | Redalytics is a tool that allows a user to gather all post history from a given reddit
+                | account and have it formatted and displayed in a way that&apos;s easy to navigate. There are
+                | also charts that show posting habits and frequencies, as well as a section for general
+                | information containing total karma count, trophies, top 3 best posts, top 3 worst
+                | posts, etc.
+    #canvasModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='canvasModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+            |         
+            h4#canvasModalLabel.modal-title Canvas Animations
+          |       
+          .modal-body
+            .gc-project-entry
+              a(href='/animations/everywhere-usa')
+                h4 Everywhere, USA
+              |           
+              p
+                | This animation was made over the course of a day or two as a class project.  It was one
+                | of my first attempts at working with HTML5 canvas, and my first attempt at a
+                | side-scrolling animation.  Projects were due on a weekly basis in this particular
+                | class, so I was never able to squeeze as much detail as I wanted into anything I
+                | created.  This animation features a little truck putt-putting along, and was inspired
+                | by a road trip I took up the 5 Freeway a few years ago.
+            |         
+            .gc-project-entry
+              a(href='/animations/forest-moon')
+                h4 Forest Moon
+              |           
+              p
+                | I took a different approach to 
+                em Forest Moon
+                |  from my other animations, but I
+                |             was still bound by the same time constraints in the course so I wasn&apos;t able to add in
+                |             the detail I originally planned. I layered three canvas elements: one layer for the
+                |             orbiting sun and moon (the moon also transitions through its phases every 28 periods),
+                |             one layer for the randomly placed (within particular parameters) terrestrial elements,
+                |             and one layer for actors -- though the only actor ended up being a triangular
+                |             UFO-thing.
+            |         
+            .gc-project-entry
+              a(href='/animations/squares-and-triangles')
+                h4 Squares and Triangles
+              |           
+              p
+                em Squares and Triangles
+                |  was quickly made, and although I wasn&apos;t really
+                |             satisfied with the general idea for this animation, I do like the artifacts that
+                |             appear as the shapes are drawn, and as they&apos;re incompletely erased when the animation
+                |             winds back around.
+              |  
+              |           
+              p
+                small
+                  b NOTE:
+                  |  The JavaScript source for these animations are left unminified so
+                  |             they can be easily viewed.
+    #openSourceModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='openSourceModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+            |         
+            h4#openSourceModalLabel.modal-title Open Source
+          |       
+          .modal-body
+            .gc-project-entry
+              a(href='https://github.com/gconsidine', target='_blank') GitHub
+              |           
+              p
+                | GitHub has become an indispensable tool, community, and resource for me. Lately, I&apos;ve
+                | been taking cues from the many great projects I&apos;ve had the pleasure of using.  While I
+                | don&apos;t open source all of my projects (client projects in particular), I do try to keep
+                | everything else open on the MIT license -- even the old projects that make me cringe a
+                | bit when I revisit them.
+            |         
+            .gc-project-entry
+              a(href='https://coveralls.io/r/gconsidine', target='_blank') Coveralls
+              |           
+              p
+                | Testing has moved to the forefront of my thought process while writing code nowadays.
+                | Now that I&apos;ve invested the time to integrate automated testing into my workflow, it&apos;s
+                | hard to imagine living without it.  It provides a level of confidence, security, and
+                | assurance that just isn&apos;t attainable otherwise.
+              |           
+              p
+                | Coveralls is a great open source tool to provide coverage statistics on your open
+                | source projects and has excellent integration with GitHub.
+            |         
+            .gc-project-entry
+              a(href='https://travis-ci.org/gconsidine/plz-cms', target='_blank') Travis CI
+              |           
+              p
+                | Over time, I&apos;ve worked to refine and automate my workflow.  Using Travis CI on open
+                | source projects has been a big help in automating full builds and relaying the status
+                | back to GitHub.  Travis CI becomes more useful as you introduce more automation
+                | into your workflow: server-side dependencies fetched via npm, client-side dependencies
+                | fetched via Bower, linting, concatenation, minification, testing, etc.
+

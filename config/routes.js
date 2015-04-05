@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  '/': { view: 'homepage' },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +43,10 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  'post /contact': 'ContactController.sendForm',
+  'get /animations/everywhere-usa': 'AnimationController.everywhereUsa',
+  'get /animations/forest-moon': 'AnimationController.forestMoon',
+  'get /animations/squares-and-triangles': 'AnimationController.squaresAndTriangles'
 
 };

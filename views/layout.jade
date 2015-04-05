@@ -3,16 +3,96 @@ html
   head
     title= title
 
-    // Viewport mobile tag for sensible mobile support
     meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+
+    // STYLES
+    link(rel="stylesheet", href="/styles/importer.css")
+    // STYLES END
 
     block styles
 
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '{{ getenv("GA") }}', 'greg-considine.com');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+
   body
+    nav.navbar.navbar-default(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbarCollapse')
+            span.sr-only Toggle navigation
+            |             
+            span.icon-bar
+            |             
+            span.icon-bar
+            |             
+            span.icon-bar
+
+          a.navbar-brand(href='#')
+            #logoHeader.gc-logo-header(height='300px')
+
+        #navbarCollapse.collapse.navbar-collapse
+          ul.nav.navbar-nav.gc-nav-buttons
+            li
+              a.gc-scroll(href='#webApps') Web Apps
+            li
+              a.gc-scroll(href='#canvasAnimations') Animations
+            li
+              a.gc-scroll(href='#openSource') Open Source
+            li
+              a.gc-scroll(href='#contactMe') Contact
+
     block body
 
-    // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
+    .container.gc-footer
+      .col-md-4.gc-built-with
+          h3 Built With
+
+          hr
+
+          a(title='Laravel')
+            .pull-left.gc-icon-sprite.gc-sprite-laravel
+          a(title='HTML5')
+            .pull-left.gc-icon-sprite.gc-sprite-html
+          a(title='Twitter Bootstrap')
+            .pull-left.gc-icon-sprite.gc-sprite-bootstrap
+          a(title='Grunt')
+            .pull-left.gc-icon-sprite.gc-sprite-grunt
+
+      .col-md-3.gc-connect
+        h3 Connect
+
+        hr
+
+        a(href='http://www.linkedin.com/pub/greg-considine/60/384/710', title='LinkedIn', target='_blank')
+          .pull-left.gc-icon-sprite.gc-sprite-linkedin
+        a(href='https://github.com/gconsidine', title='GitHub', target='_blank')
+          .pull-left.gc-icon-sprite.gc-sprite-github
+
+      .col-md-5.gc-info
+        h3 Info
+
+        hr
+
+        p
+          | Greg Considine 
+
+          br
+
+          a(href='files/greg-considine.pdf', target='_blank') R&eacute;sum&eacute;
+
+          br
+
+          | Copyright &copy; 2013-2015 
+
+          a(href='/') greg-considine.com
+
     // SCRIPTS
     script(src="/js/dependencies/sails.io.js")
+    script(src="/js/dist/app-bundle.js")
     // SCRIPTS END
-

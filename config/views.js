@@ -32,6 +32,4 @@ module.exports.views = {
 
   layout: false,
   engine: 'jade',
-
-
 };
