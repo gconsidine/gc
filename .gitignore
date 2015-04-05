@@ -119,7 +119,6 @@ nbproject
 
 # Added
 *.*.swp
-assets/fonts
 assets/js/dist
 assets/less/dependencies
 assets/js/dependencies/jquery.js
