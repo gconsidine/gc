@@ -1,4 +1,6 @@
-require('newrelic');
+if(process.env.NODE_NEWRELIC) {
+  require('newrelic');
+}
 
 /**
  * app.js
