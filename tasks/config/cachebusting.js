@@ -13,7 +13,7 @@ module.exports = function (grunt) {
       replacement: 'app.js',
       file: '.tmp/public/js/app.js',
       get_param: true
-    }
+    },
 
     cssProd: {
       replace: ['views/layout.jade'],

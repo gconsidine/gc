@@ -10,7 +10,7 @@ html
     link(href='/images/favicon.png', rel='shortcut icon')
 
     if environment == 'production'
-      link(rel="stylesheet", href="/css/app.min.css")
+      link(rel="stylesheet", href="/css/app.min.css?v=f3e9cc6331351b96ddc79cebb0ad5178")
     else 
       link(rel="stylesheet", href="/css/app.css?v=d990ab356067efe876010907b68cb766")
 
@@ -94,7 +94,7 @@ html
           a(href='/') greg-considine.com
 
     if environment == 'production'
-      script(src="/js/app.min.js?mod=#{modified}")
+      script(src="/js/app.min.js?v=c27883631f2518c0873b2771e45af884?mod=#{modified}")
     else 
       script(src="/js/app.js?mod=#{modified}")
 
