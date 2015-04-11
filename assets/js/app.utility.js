@@ -1,11 +1,15 @@
 var AppUtility = function () {
+  'use strict';
 
   this.request = function (o) {
+    var postString,
+        httpRequest;
+
     this.updateStatus('pending');
 
     if(this.validateRequest(o)) {
-      var postString = 'text=' + encodeURIComponent(o.text) + '&email=' + 
-                        encodeURIComponent(o.email) + '&_csrf=' + encodeURIComponent(o._csrf);
+      postString = 'text=' + encodeURIComponent(o.text) + '&email=' + 
+                   encodeURIComponent(o.email) + '&_csrf=' + encodeURIComponent(o._csrf);
     } else {
       this.updateStatus('fail');
       return false;

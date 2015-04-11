@@ -1,4 +1,5 @@
 var CanvasEverywhereUsa = function () {
+  'use strict';
 
   var canvas,
       context;
@@ -19,7 +20,7 @@ var CanvasEverywhereUsa = function () {
     setInterval(function () {game.loop();}, 100);
   };
 
-  game = {
+  var game = {
 
     frame : 0,
     count : 0,
@@ -255,7 +256,7 @@ var CanvasEverywhereUsa = function () {
 
       this.frame++;
     }
-  }
+  };
 };
 
 module.exports = new CanvasEverywhereUsa();
