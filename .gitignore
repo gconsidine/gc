@@ -40,3 +40,5 @@ assets/js/dependencies/jquery.js
 assets/js/dependencies/bootstrap.js
 assets/tmp
 www
+
+config/locals.js
