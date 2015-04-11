@@ -1,4 +1,4 @@
-### Portfolio-ish Project
+### Portfolio-ish Project [![Build Status](https://travis-ci.org/gconsidine/greg-considine.com.svg)](https://travis-ci.org/gconsidine/greg-considine.com)
 
 - - -
 
