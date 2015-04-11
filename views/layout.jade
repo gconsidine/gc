@@ -7,11 +7,12 @@ html
     meta(name="description", content="Greg Considine's development portfolio")
     meta(name="author", content="Greg Considine")
 
-    link(href='images/favicon.png', rel='shortcut icon')
+    link(href='/images/favicon.png', rel='shortcut icon')
 
-    // STYLES
-    link(rel="stylesheet", href="/styles/importer.css")
-    // STYLES END
+    if environment == 'production'
+      link(rel="stylesheet", href="/css/app.min.css")
+    else 
+      link(rel="stylesheet", href="/css/app.css?v=d990ab356067efe876010907b68cb766")
 
     block styles
 
@@ -84,7 +85,7 @@ html
 
           br
 
-          a(href='files/greg-considine.pdf', target='_blank') R&eacute;sum&eacute;
+          a(href='/files/greg-considine.pdf', target='_blank') R&eacute;sum&eacute;
 
           br
 
@@ -92,7 +93,8 @@ html
 
           a(href='/') greg-considine.com
 
-    // SCRIPTS
-    script(src="/js/dependencies/sails.io.js")
-    script(src="/js/dist/app-bundle.js")
-    // SCRIPTS END
+    if environment == 'production'
+      script(src="/js/app.min.js?mod=#{modified}")
+    else 
+      script(src="/js/app.js?mod=#{modified}")
+

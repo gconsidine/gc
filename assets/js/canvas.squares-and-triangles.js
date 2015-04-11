@@ -114,10 +114,8 @@ var canvasSquaresAndTriangles = function () {
      
     })();
 
-    var init = (function () {
-      leftSquare = new square(CANVAS_WIDTH/3 - 150, 150);
-      rightSquare = new square((CANVAS_WIDTH * 2)/3 - 50, 150);
-    })();
+    leftSquare = new square(CANVAS_WIDTH/3 - 150, 150);
+    rightSquare = new square((CANVAS_WIDTH * 2)/3 - 50, 150);
 
     var draw = function () {
       leftSquare.draw(); 

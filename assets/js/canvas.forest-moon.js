@@ -1,4 +1,5 @@
 var canvasForestMoon = function () {
+  'use strict';
 
   var uni = (function () {
     var CANVAS_WIDTH = document.documentElement.clientWidth,
@@ -16,7 +17,7 @@ var canvasForestMoon = function () {
       return {
         canvas : canvas,
         context : context
-      }
+      };
     }
 
     var animate = function () {
@@ -31,7 +32,7 @@ var canvasForestMoon = function () {
           SUN_SCALE = 0.1,
           MOON_SCALE = 0.05,
           PHASE_DAY_LIMIT = 14,
-          PHASE_DISTANCE_MAX = 2 * CANVAS_HEIGHT * MOON_SCALE;
+          PHASE_DISTANCE_MAX = 2 * CANVAS_HEIGHT * MOON_SCALE,
           RADIUS = CANVAS_HEIGHT * ORBIT_SCALE;
 
       var layer1 = initialize('astral'),
@@ -42,9 +43,7 @@ var canvasForestMoon = function () {
           day = 0,
           degree = 0;
 
-      var init = (function () {
-        layer1.context.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT);
-      })();
+      layer1.context.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT);
 
       function drawSun(erase) {
 
@@ -110,7 +109,7 @@ var canvasForestMoon = function () {
 
         var deg = degree - 180,
             x = RADIUS * Math.cos(deg * Math.PI / 180),
-            y = RADIUS * Math.sin(deg * Math.PI / 180);
+            y = RADIUS * Math.sin(deg * Math.PI / 180),
             phaseOffset = (phaseDayCount / PHASE_DAY_LIMIT) * PHASE_DISTANCE_MAX;
 
         layer1.context.beginPath();
@@ -191,7 +190,7 @@ var canvasForestMoon = function () {
           layer2.context.closePath();
           layer2.context.fill();
           layer2.context.stroke();
-        };
+        }
         
 
         function drawTrees() {
@@ -201,7 +200,7 @@ var canvasForestMoon = function () {
               offsetXScale = 0.005,
               offsetX = 0,        // Random offset for horizontal position
               distance = 0,       // From peak to bottom
-              randomSign = -1,    // To randomize the horizontal positioning of a tree (left or right of POI)
+              randomSign = -1,    // To randomize the horizontal positioning of a tree
               scale = 0,          // Trees are smaller closer to the peak, and large near bottom
               sideLength = CANVAS_HEIGHT * 0.15, // Length of triangle side
               topSection = 0,                     // Sections of the tree
@@ -214,12 +213,13 @@ var canvasForestMoon = function () {
           for(var i = 0; i < pois.length; i++) {
 
             
-            if(Math.random() > .5) {
+            if(Math.random() > 0.5) {
               randomSign = 1;
             }
 
             if(i > 0) {
-              offsetX = offsetXScale * randomSign * Math.floor(Math.random() * (pois[i].x - pois[i - 1].x) + pois[i - 1].x);
+              offsetX = offsetXScale * randomSign * Math.floor(Math.random() * 
+                        (pois[i].x - pois[i - 1].x) + pois[i - 1].x);
             }
 
 
@@ -245,7 +245,8 @@ var canvasForestMoon = function () {
             layer2.context.lineTo(horizontalPos, verticalPos);
 
             /* Middle Section */
-            layer2.context.moveTo(horizontalPos, verticalPos += middleSection * (Math.cos(60 * Math.PI / 180)/2));
+            layer2.context.moveTo(horizontalPos, verticalPos += middleSection * 
+                                                                (Math.cos(60 * Math.PI / 180)/2));
             layer2.context.lineTo(horizontalPos + middleSection * Math.cos(60 * Math.PI / 180), 
                                   verticalPos + middleSection * Math.sin(60 * Math.PI / 180));
             layer2.context.lineTo(horizontalPos - middleSection / 2, 
@@ -253,7 +254,8 @@ var canvasForestMoon = function () {
             layer2.context.lineTo(horizontalPos, verticalPos);
 
             /* Bottom Section  */
-            layer2.context.moveTo(horizontalPos, verticalPos += bottomSection * (Math.cos(60 * Math.PI / 180)/2));
+            layer2.context.moveTo(horizontalPos, verticalPos += bottomSection * 
+                                                                (Math.cos(60 * Math.PI / 180)/2));
             layer2.context.lineTo(horizontalPos + bottomSection * Math.cos(60 * Math.PI / 180), 
                                   verticalPos + bottomSection * Math.sin(60 * Math.PI / 180));
             layer2.context.lineTo(horizontalPos - bottomSection / 2, 
@@ -261,7 +263,8 @@ var canvasForestMoon = function () {
             layer2.context.lineTo(horizontalPos, verticalPos);
             
             /* Trunk section*/
-            layer2.context.moveTo(horizontalPos, verticalPos += bottomSection * Math.sin(60 * Math.PI / 180));
+            layer2.context.moveTo(horizontalPos, verticalPos += bottomSection * 
+                                                                Math.sin(60 * Math.PI / 180));
             layer2.context.lineTo(horizontalPos, verticalPos + trunk);
             layer2.context.lineWidth = lineWidth * scale;
 
@@ -283,10 +286,8 @@ var canvasForestMoon = function () {
           return max;
         }
 
-        var draw = (function () {
-          drawHorizon();
-          drawTrees();
-        })();
+        drawHorizon();
+        drawTrees();
 
         /* -- ACTOR -- */
         var actor = (function () {
@@ -295,13 +296,13 @@ var canvasForestMoon = function () {
 
           var layer3 = initialize('actor'),
               inFlight = false,
-              earse = false,
               x = 0,
               y = 0;
           
           function drawBird(erase) {
-            
-            var tempX = 0;
+            var tempX = 0,
+                expanded;
+
             layer3.context.beginPath();
 
             if(!erase) {
@@ -321,7 +322,8 @@ var canvasForestMoon = function () {
             } else {
              tempX = x;
              layer3.context.clearRect(x - TRI_LENGTH * Math.cos(30 * Math.PI / 180), 
-                                      y - 1, TRI_LENGTH * Math.cos(30 * Math.PI / 180), TRI_LENGTH + 2);
+                                      y - 1, TRI_LENGTH * Math.cos(30 * Math.PI / 180), 
+                                      TRI_LENGTH + 2);
             } 
           }
 
@@ -363,7 +365,7 @@ var canvasForestMoon = function () {
       return {
         updateAstralPlane : updateAstralPlane,
         earth : earth
-      }
+      };
 
     })();
     /* -- END ASTRAL -- */
@@ -371,12 +373,12 @@ var canvasForestMoon = function () {
     return {
       animate : animate,
       astral : astral
-    }
+    };
   })();
 
   function init () {
     setInterval(uni.animate, 17);  
-  };
+  }
 
   return {
     init: init
