@@ -9,7 +9,8 @@ module.exports = function (grunt) {
     'less',
     'shell:copyDevAssets',
     'cache-busting:cssDev',
-    'cache-busting:jsDev'
+    'cache-busting:jsDev',
+    'imagemin'
 	]);
 
 	grunt.registerTask('buildProd', [
@@ -23,6 +24,7 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'cache-busting:cssProd',
-    'cache-busting:jsProd'
+    'cache-busting:jsProd',
+    'imagemin'
 	]);
 };

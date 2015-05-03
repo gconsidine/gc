@@ -51,13 +51,13 @@ module.exports = function(grunt) {
     },
 
     /*
-     * Copies permanent and generated asset files to public directory
+     * Copies permanent and generated asset files to public directory.  Images are brought over 
+     * by the imagemin task.
      */
     copyDevAssets: {
       command: [
         'cp assets/tmp/app.css .tmp/public/css/',
         'cp assets/tmp/app.js .tmp/public/js/',
-        'cp assets/images/* .tmp/public/images/',
         'cp assets/files/* .tmp/public/files/',
         'cp assets/fonts/* .tmp/public/fonts/'
       ].join('&&')
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 
     /*
      * Use browserify and browserify-shim to bundle CommonJS spec'd code into a bundle.  The 
-     * bundle is placed in a tmp folder pre-concatenation with sails.io.js.
+     * bundle is placed in a tmp folder.
      */
     browserify: {
       command: [
