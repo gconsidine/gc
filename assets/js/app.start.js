@@ -15,6 +15,7 @@
 
     $ = jQuery = require('./dependencies/jquery');
     require('./dependencies/bootstrap');
+    require('./dependencies/sails.io');
 
     logo.init('logoHeader');
     logo.init('logoContent');

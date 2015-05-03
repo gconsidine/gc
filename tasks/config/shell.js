@@ -72,8 +72,9 @@ module.exports = function(grunt) {
         './node_modules/.bin/browserify',
         'assets/js/dependencies/jquery.js',
         'assets/js/dependencies/bootstrap.js',
+        'assets/js/dependencies/sails.io.js',
         'assets/js/*.*.js',
-        '-o assets/tmp/app-bundle.js'
+        '-o assets/tmp/app.js'
       ].join(' ')    
     }
 

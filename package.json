@@ -47,10 +47,12 @@
   },
   "browser": {
     "jquery": "assets/js/dependencies/jquery.js",
-    "bootstrap": "assets/js/dependencies/bootstrap.js"
+    "bootstrap": "assets/js/dependencies/bootstrap.js",
+    "io": "assets/js/dependencies/sails.io.js"
   },
   "browserify-shim": {
     "jquery": "$",
+    "io": "io",
     "bootstrap": {
       "exports": "bootstrap",
       "depends": [

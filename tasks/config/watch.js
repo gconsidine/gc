@@ -17,7 +17,14 @@ module.exports = function(grunt) {
 	grunt.config.set('watch', {
 		assets: {
 			files: ['assets/**/*'],
-			tasks: ['jshint', 'csslint']
+			tasks: [
+        'shell:browserify',
+        'less',
+        'shell:copyBaseAssets',
+        'shell:copyDevAssets',
+        'jshint', 
+        'csslint'
+      ]
 		}
 	});
 

@@ -7,7 +7,6 @@ module.exports = function (grunt) {
 		'shell:copyBaseAssets',
 		'shell:browserify',
     'less',
-    'concat',
     'shell:copyDevAssets',
     'cache-busting:cssDev',
     'cache-busting:jsDev'
@@ -20,7 +19,6 @@ module.exports = function (grunt) {
 		'shell:copyBaseAssets',
 		'shell:browserify',
     'less',
-    'concat',
     'shell:copyDevAssets',
     'cssmin',
     'uglify',
