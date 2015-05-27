@@ -14,55 +14,23 @@ block body
 
           p
             | I&apos;m a software engineer currently focused on full stack development and modern best
-            | practices.  In addition to development in LAMP-based environments at work and
-            | mostly MEAN-based environments at home, I enjoy being involved in the automation of
-            | processes (testing, building, deploying, etc.), and in monitoring of the health and usage
-            | of projects in production.
-
-          p
-            | When I&apos;m not immersed in something technical, I find myself becoming more interested in the
-            | wisdom handed down from the elders of the industry, and the history of the industry itself.
+            | practices.  In addition to development in LAMP-based and MEAN-based 
+            | environments, I enjoy being involved in the automation of processes (testing, 
+            | building, deploying, etc.), and in monitoring of the health and usage of projects 
+            | in production.
 
           p
             | Software is my profession and primary hobby and I&apos;m always looking to learn new 
             | technologies and to hone my skills.  If you&apos;d like to get in touch with me, use the 
             a.gc-scroll(href='#contactMe') contact form
-            |  below.  If you have professional inquiries, head on over to 
+            |  below and I&apos;ll get back to you as soon as possible.
+
+          p
+            | If you're curious about my professional side projects or have professional inquiries, 
+            | please visit 
             a(href='https://caprahorn.com' title='Caprahorn', target='_blank') caprahorn.com 
-            |  and shoot me a message.  I&apos;ll get back to you as soon as possible.  Thank you!
+            | .  This personal site will mostly be reserved as a creative outlet.  Thank you!
 
-    #webApps.container
-      .gc-content
-        .col-md-4.gc-icon-title
-          span.glyphicon.glyphicon-globe.gc-content-icon
-
-          h1 Web Apps
-
-          .gc-link(data-toggle='modal', data-target='#webAppsModal')
-            span.glyphicon.glyphicon-info-sign.gc-content-details
-            p (click for info)
-
-        .col-md-8
-          .gc-image-container
-            p
-              a(href='http://csllegal.com', target='_blank') California Sports Lawyer
-
-            a(href='http://csllegal.com', target='_blank')
-              .img-responsive.gc-project-sprite.gc-sprite-csl.gc-border
-
-          .gc-image-container
-            p
-              a(href='http://californiasodcenter.com', target='_blank') California Sod Center
-
-            a(href='http://californiasodcenter.com', target='_blank')
-              .img-responsive.gc-project-sprite.gc-sprite-csc.gc-border
-
-          .gc-image-container
-            p
-              a(href='https://github.com/gconsidine/redalytics-legacy', target='_blank') Redalytics (Legacy)
-
-            a(href='https://github.com/gconsidine/redalytics-legacy', target='_blank')
-              .img-responsive.gc-project-sprite.gc-sprite-redalytics.gc-border
 
     #canvasAnimations.container
       .gc-content
@@ -153,57 +121,6 @@ block body
           img#contactSending.pull-right(width='32', height='32', style='display:none', src='images/loading.gif')
 
           #contactStatus.pull-left.gc-contact-status.text-danger(style='display:none')
-
-
-    #webAppsModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='webAppsModalLabel', aria-hidden='true')
-      .modal-dialog
-        .modal-content
-          .modal-header
-            button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
-            h4#webAppsModalLabel.modal-title Web Applications
-
-          .modal-body
-            .gc-project-entry
-              a(href='http://csllegal.com')
-                h4 California Sports Lawyer
-
-              p
-                | Built with Laravel (an MVC framework for PHP) and Twitter Bootstrap (for responsive
-                | design). The site has CMS features that gives an administrator the ability to
-                | add/edit/delete articles, blogs, events, clients, and other information throughout the
-                | site. All content is automatically formatted and displayed.
-
-            .gc-project-entry
-              a(href='http://californiasodcenter.com')
-                h4 California Sod Center
-
-              p
-                | This iteration of californiasodcenter.com was completely redesigned from the ground
-                | up. It&apos;s an e-commerce site that allows customers to easily purchase sod and
-                | sod-related items quickly and securely using Authorize.net as a payment gateway.
-
-            .gc-project-entry
-              a(href='https://github.com/gconsidine/redalytics-legacy')
-                h4 Redalytics
-
-              p
-                | A fun project that I worked on over the course of a few weekends. It was my first
-                | attempt at creating a single-page application, where all content is asynchronously
-                | loaded up front, then processed and displayed with JavaScript. Page navigation is just
-                | simple DOM manipulation -- there&apos;s no waiting for a response from the server after the
-                | initial wait to gather a user&apos;s post history, so the overall experience feels snappy
-                | like a native app.
-
-              p
-                | Redalytics is a tool that allows a user to gather all post history from a given reddit
-                | account and have it formatted and displayed in a way that&apos;s easy to navigate. There are
-                | also charts that show posting habits and frequencies, as well as a section for general
-                | information containing total karma count, trophies, top 3 best posts, top 3 worst
-                | posts, etc.
-
-              p
-                | Update: This project is no longer hosted.  I have plans to rewrite it at some
-                | point, but for now it'll be in the GitHub Graveyard.
 
     #canvasModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='canvasModalLabel', aria-hidden='true')
       .modal-dialog
