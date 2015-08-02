@@ -83,10 +83,10 @@ var HomeController = function () {
     var html = [
       '<p>',
       '  <a href="' + response.data.link + '" target="_blank">' + response.data.title + '</a> | ',
-      '  <em>' + new Date(response.data.pubDate).toLocaleString() + '</em>',
+      '  <em>' + new Date(response.data.pubDate).toLocaleDateString() + '</em>',
       '</p>',
       '<p>', 
-      preview + '<a href="' + response.data.link + '" target="_blank"> ...continue reading</a>',
+      preview + '<a href="' + response.data.link + '" target="_blank"> ...continue reading.</a>',
       '</p>'
     ].join('');
 
@@ -105,8 +105,9 @@ var HomeController = function () {
 
       html += [
         '<p>',
-        '  <a href="' + c.url + '" target="_blank">' + c.sha.substring(0, 7) + '</a> | ',
-        '  <em>' + new Date(response.data[i].created_at).toLocaleString() + '</em>',
+        '  <a href="https://github.com/' + response.data[i].repo.name + '/commit/' + c.sha + '"', 
+        '     target="_blank">' + c.sha.substring(0, 7) + '</a> | ',
+        '  <em>' + new Date(response.data[i].created_at).toLocaleDateString() + '</em>',
         '</p>',
         '<p>' + c.message + '</p>'
       ].join('');
@@ -124,9 +125,9 @@ var HomeController = function () {
     for(var i = 0; i < response.data.length; i++) {
       html += [
         '<p>',
-        '  <a href="https://twitter.com/greg_considine/status/' + response.data[i].id,
+        '  <a href="https://twitter.com/greg_considine/status/' + response.data[i].id_str + '"',
         '     target="_blank">' + response.data[i].id + '</a> | ',
-        '  <em>' + new Date(response.data[i].created_at).toLocaleString() + '</em>',
+        '  <em>' + new Date(response.data[i].created_at).toLocaleDateString() + '</em>',
         '</p>',
         '<p>' + response.data[i].text + '</p>'
       ].join('');

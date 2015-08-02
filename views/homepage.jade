@@ -35,7 +35,9 @@ block body
         #activity.gc-content-activity
 
           .col-md-4
-            h3 Recent Blog Posts
+            h3 
+              a(href='https://blog.greg-considine.com', target="_blank")
+                |Recent Blog Posts
 
             hr
 
@@ -44,8 +46,10 @@ block body
                 img(width='32', height='32', src='images/loading.gif')
                 
           .col-md-4
-            h3 GitHub Activity
-            
+            h3
+              a(href='https://github.com/gconsidine?tab=activity', target="_blank")
+                | Public GitHub Activity
+           
             hr 
 
             #gitHubContent
@@ -53,8 +57,10 @@ block body
                 img(width='32', height='32', src='images/loading.gif')
 
           .col-md-4
-            h3 Tweets
-            
+            h3
+              a(href='https://twitter.com/greg_considine', target="_blank")
+                | Tweets
+           
             hr
 
             #twitterContent
