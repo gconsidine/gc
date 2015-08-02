@@ -2,7 +2,8 @@ extends ./layout
 
 block body
   .container
-    .gc-content.gc-top-content
+    .container
+      .gc-content.gc-top-content
         .col-md-4
           #logoContent.gc-logo-content(style='height: 300px;')
         |     
@@ -31,6 +32,34 @@ block body
             a(href='https://caprahorn.com' title='Caprahorn', target='_blank') caprahorn.com. 
             | This personal site will mostly be reserved as a creative outlet.  Thank you!
 
+        #activity.gc-content-activity
+
+          .col-md-4
+            h3 Recent Blog Posts
+
+            hr
+
+            #blogContent
+              .gc-content-loading
+                img(width='32', height='32', src='images/loading.gif')
+                
+          .col-md-4
+            h3 GitHub Activity
+            
+            hr 
+
+            #gitHubContent
+              .gc-content-loading
+                img(width='32', height='32', src='images/loading.gif')
+
+          .col-md-4
+            h3 Tweets
+            
+            hr
+
+            #twitterContent
+              .gc-content-loading
+                img(width='32', height='32', src='images/loading.gif')
 
     #canvasAnimations.container
       .gc-content

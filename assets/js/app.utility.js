@@ -1,18 +1,18 @@
 var AppUtility = function () {
   'use strict';
+  
+  var self = this || {};
 
-  this.request = function (o) {
-    var postString,
+  self.postRequest = function (o) {
+    var body,
         httpRequest;
 
-    this.updateStatus('pending');
+    o.callback('pending');
 
-    if(this.validateRequest(o)) {
-      postString = 'text=' + encodeURIComponent(o.text) + '&email=' + 
-                   encodeURIComponent(o.email) + '&_csrf=' + encodeURIComponent(o._csrf);
+    if(self.validateRequest(o)) {
+      body = self.buildMessage(o, 'POST');
     } else {
-      this.updateStatus('fail');
-      return false;
+      return o.callback('fail');
     }
 
     httpRequest = new XMLHttpRequest();
@@ -21,59 +21,69 @@ var AppUtility = function () {
       return false;
     }
     
-    httpRequest.onreadystatechange = alertContents.bind(this);
-    httpRequest.open('POST', '/contact');
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('POST', o.url);
     httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    httpRequest.send(postString);
+    httpRequest.send(body);
     
     function alertContents() {
       if(httpRequest.readyState === 4) {
         if(httpRequest.status === 200) {
-          this.updateStatus('success');      
+          o.callback('success');      
         } else {
-          this.updateStatus('fail');
+          o.callback('fail');
         }
       }
     }
   };
 
-  this.validateRequest = function (o) {
-    if(o.text !== '' && o.email !== '') {
-      if(o.email.indexOf('@') !== -1 && o.email.indexOf('.') !== -1) {
-        return true;
+  self.buildMessage = function (o, method) {
+    var body = '';
+
+    for(var param in o.params) {
+      if(o.params.hasOwnProperty(param)) {
+        body += param + '=' + window.encodeURIComponent(o.params[param]) + '&';
       }
     }
 
-    return false;
-  };
-
-  this.updateStatus = function (message) {
-    var contactButton = document.getElementById('contactButton'),
-        contactStatus = document.getElementById('contactStatus'),
-        contactSending = document.getElementById('contactSending'),
-        contactSuccess = document.getElementById('contactSuccess'),
-        userMessage = document.getElementById('userMessage'),
-        userEmail = document.getElementById('userEmail');
-
-    if(message === 'pending') {
-      contactButton.style.display = 'none';
-      contactSending.style.display = 'block';
-      contactButton.style.display = 'none';
-    } else if (message === 'success') {
-      contactStatus.style.display = 'none';
-      contactButton.style.display = 'none';
-      contactSending.style.display = 'none';
-      contactSuccess.style.display = 'block';
-      userMessage.readOnly = 'readonly';
-      userEmail.readOnly = 'readonly';
-    } else {
-      contactSending.style.display = 'none';
-      contactStatus.innerHTML = 'Invalid submission';
-      contactStatus.style.display = 'block';
-      contactButton.innerHTML = 'Try Again';
-      contactButton.style.display = 'block';
+    switch(method) {
+      case 'GET':
+        return '?' + body.substring(0, body.length - 1);
+      case 'POST':
+        return body.substring(0, body.length - 1);
     }
   };
+
+  self.getRequest = function (o) {
+    var httpRequest = new XMLHttpRequest();
+
+    if(!httpRequest){
+      return false;
+    }
+    
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('GET', o.url);
+    httpRequest.send();
+    
+    function alertContents() {
+      if(httpRequest.readyState === 4) {
+        if(httpRequest.status === 200) {
+          o.callback(false, httpRequest.responseText);      
+        } else {
+          o.callback(true, null);
+        }
+      }
+    }
+  };
+
+  self.validateRequest = function (o) {
+    if(!o.url || !o.params || !o.params._csrf || !o.callback) {
+      return false;
+    }
+
+    return true;
+  };
+
 };
 
 module.exports = new AppUtility();

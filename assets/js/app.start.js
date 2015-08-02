@@ -4,9 +4,10 @@
   document.addEventListener('DOMContentLoaded', documentReady);  
 
   function documentReady () {
-    var $, jQuery, logo, utility;
+    var $, jQuery, logo, home, utility;
 
     logo = require('./canvas.logo');
+    home = require('./home.controller');
 
     if(/animations/g.test(document.URL)) {
       var paths = document.URL.split('/');
@@ -17,34 +18,9 @@
     require('./dependencies/bootstrap');
     require('./dependencies/sails.io');
 
-    logo.init('logoHeader');
-    logo.init('logoContent');
-
     utility = require('./app.utility');
 
-    setSmoothScroll($);
-    setContactFormEvent(utility);
-  }
-
-  function setSmoothScroll($) {
-    $('.gc-scroll').click( function (event) {		
-      event.preventDefault();
-      $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 500);
-    });
-  }
-
-  function setContactFormEvent(utility) {
-    var contactButton = document.getElementById('contactButton');
-
-    if(contactButton) {
-      contactButton.onclick = function () { 
-        utility.request({
-          text: document.getElementById('userMessage').value,
-          email: document.getElementById('userEmail').value,
-          _csrf: document.getElementById('_csrf').value
-        });
-      };
-    }
+    home.init($, logo, utility);
   }
 
   function routeAnimation(animation, logo) {
