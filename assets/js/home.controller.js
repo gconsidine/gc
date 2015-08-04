@@ -81,13 +81,13 @@ var HomeController = function () {
     preview = preview.substring(3, preview.length);
 
     var html = [
-      '<p>',
+      '<p class="gc-activity-title">',
       '  <a href="' + response.data.link + '" target="_blank">' + response.data.title + '</a> | ',
       '  <em>' + new Date(response.data.pubDate).toLocaleDateString() + '</em>',
       '</p>',
       '<p>', 
-      preview + '<a href="' + response.data.link + '" target="_blank"> ...continue reading.</a>',
-      '</p>'
+      preview + '<em><a href="' + response.data.link + '" target="_blank"> ...continue reading.',
+      '</a></em></p>'
     ].join('');
 
     blog.innerHTML = html;
@@ -104,7 +104,7 @@ var HomeController = function () {
       c = response.data[i].payload.commits[0];
 
       html += [
-        '<p>',
+        '<p class="gc-activity-title">',
         '  <a href="https://github.com/' + response.data[i].repo.name + '/commit/' + c.sha + '"', 
         '     target="_blank">' + c.sha.substring(0, 7) + '</a> | ',
         '  <em>' + new Date(response.data[i].created_at).toLocaleDateString() + '</em>',
@@ -118,22 +118,44 @@ var HomeController = function () {
 
   self.updateTwitterActivity = function (error, response) {
     response = JSON.parse(response);
-
+    
     var twitter = document.getElementById('twitterContent');
+    var tweet = '';
     var html = '';
     
     for(var i = 0; i < response.data.length; i++) {
+      tweet = self.markupTwitterMentions(response.data[i].text);
+
       html += [
-        '<p>',
+        '<p class="gc-activity-title">',
         '  <a href="https://twitter.com/greg_considine/status/' + response.data[i].id_str + '"',
         '     target="_blank">' + response.data[i].id + '</a> | ',
         '  <em>' + new Date(response.data[i].created_at).toLocaleDateString() + '</em>',
         '</p>',
-        '<p>' + response.data[i].text + '</p>'
+        '<p>' + tweet + '</p>'
       ].join('');
     }
 
     twitter.innerHTML = html;
+  };
+
+  self.markupTwitterMentions = function (tweet) {
+    var userPattern = /(@)(\w|\d|_){1,15}(?=\s)/g;
+
+    var matches = tweet.match(userPattern);
+
+    if(!matches) {
+      return tweet;
+    }
+
+    for(var i = 0; i < matches.length; i++) {
+      tweet = tweet.replace(matches[i], [
+        '<a href="https://twitter.com/' + matches[i].substring(1, matches[i].length) + '"',
+        '   target="_blank">' +  matches[i] + '</a>'
+      ].join(''));
+    }
+
+    return tweet;
   };
 
   self.setSmoothScroll = function () {
