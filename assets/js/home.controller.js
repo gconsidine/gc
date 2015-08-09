@@ -3,10 +3,12 @@ var HomeController = function () {
   
   var self = this || {};
 
-  self.init = function ($, logo, utility) {
+  self.init = function ($, logo, utility, activity) {
     self.utility = utility;
     self.logo = logo;
     self.$ = $;
+
+    self.activity = activity || require('./activity.service');
 
     self.logo.init('logoHeader');
     self.logo.init('logoContent');
@@ -73,89 +75,33 @@ var HomeController = function () {
   };
 
   self.updateBlogActivity = function (error, response) {
-    response = JSON.parse(response);
-
-    var blog = document.getElementById('blogContent');
-
-    var preview = response.data.description.match(/(<p>).{0,150}\s/g)[0];
-    preview = preview.substring(3, preview.length);
-
-    var html = [
-      '<p class="gc-activity-title">',
-      '  <a href="' + response.data.link + '" target="_blank">' + response.data.title + '</a> | ',
-      '  <em>' + new Date(response.data.pubDate).toLocaleDateString() + '</em>',
-      '</p>',
-      '<p>', 
-      preview + '<em><a href="' + response.data.link + '" target="_blank"> ...continue reading.',
-      '</a></em></p>'
-    ].join('');
-
-    blog.innerHTML = html;
+    try {
+      response = JSON.parse(response);
+    } catch(error) {
+      response = null;  
+    }
+      
+    self.activity.renderBlogPosts('blogContent', response);
   };
 
   self.updateGitHubActivity = function (error, response) {
-    response = JSON.parse(response);
-
-    var gitHub = document.getElementById('gitHubContent');
-    var html = '';
-    var c;
-    
-    for(var i = 0; i < 3; i++) {
-      c = response.data[i].payload.commits[0];
-
-      html += [
-        '<p class="gc-activity-title">',
-        '  <a href="https://github.com/' + response.data[i].repo.name + '/commit/' + c.sha + '"', 
-        '     target="_blank">' + c.sha.substring(0, 7) + '</a> | ',
-        '  <em>' + new Date(response.data[i].created_at).toLocaleDateString() + '</em>',
-        '</p>',
-        '<p>' + c.message + '</p>'
-      ].join('');
+    try {
+      response = JSON.parse(response);
+    } catch(error) {
+      response = null;  
     }
-
-    gitHub.innerHTML = html;
+      
+    self.activity.renderGitHubActivity('gitHubContent', response);
   };
 
   self.updateTwitterActivity = function (error, response) {
-    response = JSON.parse(response);
-    
-    var twitter = document.getElementById('twitterContent');
-    var tweet = '';
-    var html = '';
-    
-    for(var i = 0; i < response.data.length; i++) {
-      tweet = self.markupTwitterMentions(response.data[i].text);
-
-      html += [
-        '<p class="gc-activity-title">',
-        '  <a href="https://twitter.com/greg_considine/status/' + response.data[i].id_str + '"',
-        '     target="_blank">' + response.data[i].id + '</a> | ',
-        '  <em>' + new Date(response.data[i].created_at).toLocaleDateString() + '</em>',
-        '</p>',
-        '<p>' + tweet + '</p>'
-      ].join('');
+    try {
+      response = JSON.parse(response);
+    } catch(error) {
+      response = null;  
     }
-
-    twitter.innerHTML = html;
-  };
-
-  self.markupTwitterMentions = function (tweet) {
-    var userPattern = /(@)(\w|\d|_){1,15}(?=\s)/g;
-
-    var matches = tweet.match(userPattern);
-
-    if(!matches) {
-      return tweet;
-    }
-
-    for(var i = 0; i < matches.length; i++) {
-      tweet = tweet.replace(matches[i], [
-        '<a href="https://twitter.com/' + matches[i].substring(1, matches[i].length) + '"',
-        '   target="_blank">' +  matches[i] + '</a>'
-      ].join(''));
-    }
-
-    return tweet;
+      
+    self.activity.renderTweets('twitterContent', response);
   };
 
   self.setSmoothScroll = function () {

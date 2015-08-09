@@ -20,6 +20,7 @@
 
     utility = require('./app.utility');
 
+    console.log(require('../partials/tweet.handlebars')());
     home.init($, logo, utility);
   }
 

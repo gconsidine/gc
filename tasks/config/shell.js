@@ -70,9 +70,11 @@ module.exports = function(grunt) {
     browserify: {
       command: [
         './node_modules/.bin/browserify',
+        '-t browserify-handlebars',
         'assets/js/dependencies/jquery.js',
         'assets/js/dependencies/bootstrap.js',
         'assets/js/dependencies/sails.io.js',
+        'assets/partials/*.handlebars',
         'assets/js/*.*.js',
         '-o assets/tmp/app.js'
       ].join(' ')    
