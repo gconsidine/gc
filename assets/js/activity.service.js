@@ -21,6 +21,10 @@ var ActivityService = function () {
     });
   };
 
+  /**
+   * Only shows PushEvent commit activity for the time being.  Other events (like forks)
+   * will need to be rendered seperately
+   */
   self.renderGitHubActivity = function (id, response) {
     if(!response) {
       return self.renderEmpty(id);
@@ -29,7 +33,11 @@ var ActivityService = function () {
     var partial = require('../partials/github.handlebars'),
         commits = [];
     
-    for(var i = 0; i < 3; i++) {
+    for(var i = 0; i < response.data.length; i++) {
+      if(response.data[i].type !== 'PushEvent') {
+        continue;
+      }
+
       commits.push({
         name: response.data[i].repo.name,
         hash: response.data[i].payload.commits[0].sha,
@@ -37,6 +45,10 @@ var ActivityService = function () {
         date: new Date(response.data[i].created_at).toLocaleDateString(),
         message: response.data[i].payload.commits[0].message
       });
+
+      if(commits.length === 3) {
+        break;
+      }
     }
 
     document.getElementById(id).innerHTML = partial(commits);
