@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': { 
     view: 'homepage',
     locals: {
-      title: 'Greg Considine | Home',
+      title: 'Home | greg-considine.com',
       environment: process.env.NODE_ENV
     }
   },
