@@ -77,7 +77,7 @@ var ActivityService = function () {
   self.markupTweet = function (tweet) {
     var userPattern = /(@)(\w|\d|_){1,15}/g,
         shortLinkPattern = /(http:\/\/t.co\/)[a-zA-Z0-9]{10}/g,
-        hashTagPattern = /\s#[a-zA-Z]{1}([a-zA-Z0-9])+/g,
+        hashTagPattern = /(^|\s)#[a-zA-Z]{1}([a-zA-Z0-9])+/g,
         i = 0;
 
     var users = tweet.match(userPattern),
